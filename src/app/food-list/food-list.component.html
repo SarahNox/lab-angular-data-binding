@@ -1,0 +1,28 @@
+<div>
+  <label for="food-name"></label>
+  <input type="text" [(ngModel)]="newFood.name">
+</div>
+<div>
+  <label for="food-calories"></label>
+  <input type="text" [(ngModel)]="newFood.calories">
+</div>
+<div>
+  <label for="food-image"></label>
+  <input type="text" [(ngModel)]="newFood.image">
+</div>
+
+<button (click)="addFood()">Submit New Food Item</button>
+
+<div class="form-group">
+  <label for="search">Search: </label>
+  <input type="text" name="search"[(ngModel)]="pattern" placeholder="Search">
+</div>
+
+<ul>
+  <li [ngClass]="{foodClass : true}" *ngFor="let food of foods | filter: 'name': pattern;">
+    <span>{{food.name}}</span><br>
+    <span>{{food.calories}}</span><br>
+    <img [ngClass]="{imageSmall : true}" src="{{food.image}}">
+    <button (click)="addToDay()">Add to your day</button>
+  </li>
+</ul>
