@@ -23,6 +23,14 @@
     <span>{{food.name}}</span><br>
     <span>{{food.calories}}</span><br>
     <img [ngClass]="{imageSmall : true}" src="{{food.image}}">
-    <button (click)="addToDay()">Add to your day</button>
+    <button (click)="addTodayFood(food.name, food.calories)">Add to your day</button>
   </li>
 </ul>
+
+<div [ngClass]="{foodClass : true}">
+   <h2>Today's Foods</h2>
+   <ul>
+     <li  *ngFor="let food of todayFood">{{food}}</li>
+   </ul>
+   <h3>Total Calories: {{totalCalories}}</h3>
+</div>

@@ -15,6 +15,8 @@ export class FoodListComponent implements OnInit {
   calories: string;
   image: string;
   food: Object[];
+  totalCalories: number = 0;
+  todayFood: Array <string> = [];
 
 
   constructor() { }
@@ -28,7 +30,8 @@ export class FoodListComponent implements OnInit {
     console.log("Add food has been called");
   }
 
-  addToDay(){
-    console.log(this.food);
-  }
+  addTodayFood(name: string, calories: number){
+      this.todayFood.push(name);
+      this.totalCalories += calories;
+    }
 }
